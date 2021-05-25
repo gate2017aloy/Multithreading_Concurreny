@@ -29,6 +29,9 @@ public class TokenBucketFilter {
         }
 
         if (possibleTokens == 0) {
+            // Already the tokens are 0,
+            // so current thread waits for the allotted time for a token to be produced which is indicated by the sleep
+            // and gets the token and possible tokens still remain 0
             Thread.sleep(1000);
             System.out.println("Sleeping " + Thread.currentThread().getName() + " at " + (System.currentTimeMillis() / 1000));
         } else {
